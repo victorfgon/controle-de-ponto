@@ -139,10 +139,10 @@ class BatidasServiceTest {
         horarios.add("17:00:00");
         horarios.add("17:00:00");
         registro.setHorarios(horarios);
-        ForbiddenException thrown = assertThrows(ForbiddenException.class, () -> {
+        ConflictException thrown = assertThrows(ConflictException.class, () -> {
             batidasService.validarRegistro(registro);
         });
-        assertEquals("Apenas 4 horários podem ser registrados por dia", thrown.getMessage());
+        assertEquals("Horário já registrado", thrown.getMessage());
     }
 
     @Test
