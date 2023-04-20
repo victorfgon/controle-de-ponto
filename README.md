@@ -1,7 +1,7 @@
 # Controle de Ponto
 Backend para bater ponto. No primeiro endpoint o colaborador irá bater um ponto quando entrar, um segundo quando for almoçar, um terceiro quando voltar, e por fim quando terminar o expediente, totalizando 4 pontos. No segundo endpoint o colaborador irá poder ver quantas horas de trabalho ele já fez no mês.
 
-Obs:Seguindo as especificações do desafio no yaml, todas as datas foram salvas no banco como string e foi preciso mexer bastante com transformação de datas e strings, interpretei isso como parte do desafio.
+Obs:Seguindo as especificações do desafio no yaml, todas as datas foram salvas no banco como string e foi preciso mexer bastante com transformação de datas e strings, interpretei isso como parte do desafio para dificultar o problema proposto.
 
 # Tecnologias utilizadas:
 Java 17
