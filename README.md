@@ -1,38 +1,26 @@
-# Controle de Ponto
-Backend para bater ponto. No primeiro endpoint o colaborador irá bater um ponto quando entrar, um segundo quando for almoçar, um terceiro quando voltar, e por fim quando terminar o expediente, totalizando 4 pontos. No segundo endpoint o colaborador irá poder ver quantas horas de trabalho ele já fez no mês.
+# Pokemon API
+Challenge based on the instructions from: [GitHub Repository Link](https://github.com/looqbox/looqbox-backend-challenge)
 
-Obs:Seguindo as especificações do desafio no yaml, todas as datas foram salvas no banco como string e foi preciso mexer bastante com transformação de datas e strings, interpretei isso como parte do desafio para dificultar o problema proposto.
+## Technologies Used:
+- Java 11
+- Spring Boot
+- Swagger
+- JUnit
+- Docker
+- RabbitMQ
 
-# Tecnologias utilizadas:
-Java 17
-,Spring Boot
-,MongoDB
-,Swagger
-,JUnit
-AWS Cloud
+## How to Run:
+1. Clone this repository.
+2. Run the command `.gradlew.bat clean build` (Windows) within the root folder of both microservices. Then, use `docker-compose up -d` in the main folder to start the containers.
+3. Access the API's Swagger documentation at [Swagger Link](http://localhost:8080/swagger-ui/#/) and [Swagger Link](http://localhost:8081/swagger-ui/#/)
 
+## Endpoints:
+- [http://localhost:8081/api/v1/pokemons/highlight](http://localhost:8081/api/v1/pokemons/highlight)
+- [http://localhost:8080/api/v1/pokemons/](http://localhost:8080/api/v1/pokemons/)
 
-# Como executar
-1- Clone este repositório
+## Big-O:
+The algorithm used is quicksort, as explained in the PokemonService code comments. Quicksort's best-case time complexity is Ω(n log n), indicating that in the best-case scenario, the algorithm's efficiency cannot exceed n log n.
 
-2- Execute o comando mvn clean package na raiz do projeto para gerar o arquivo JAR  e depois o arquivo JAR com o comando java -jar target/controle-de-ponto-0.0.1-SNAPSHOT.jar
-
-3- Ou rode o projeto por uma IDE.
-
-4- Acesse o Swagger em http://localhost:8080/swagger-ui/#/
-
-
-
-# Endpoints:
-
-POST /v1/batidas - Bate o ponto
-
-GET /v1/folhas-de-ponto/{mes} - Retorna a folha com todos os pontos naqule mês e as horas trabalhadas
-
-
-# DNS da aplicação na nuvem:
-
-ec2-3-137-165-64.us-east-2.compute.amazonaws.com:8080
-
-Exemplo: ec2-3-137-165-64.us-east-2.compute.amazonaws.com:8080/v1/batidas
-
+## Points for Improvement:
+1. The implemented cache reduced request time by about 10 times, but it was implemented in a straightforward manner without considering its potential growth. In a more advanced scenario, estimating cache cleanup time and setting a size limit would be necessary.
+2. For HighlightService to work, PokemonService must run first to enable Highlight to consume the queue. But because it was just a challenge, separating the application this way was a good way to create a microservice.
